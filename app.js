@@ -4,12 +4,12 @@ let newGameBtn = document.querySelector("#new-btn");
 let msgContainer = document.querySelector(".msg-container");
 let msg = document.querySelector("#msg");
 
-let turnO = true; //playerX, playerY
+let turnO = true; //playerX, playerO
 
 const winPatterns = [ //jis Patterns k ban ne per player jitega
     [0, 1, 2],
     [0, 3, 6],  //This are array
-    [0, 4, 7],
+    [0, 4, 8],
     [1, 4, 7],
     [2, 5, 8],
     [2, 4, 6],
@@ -17,10 +17,8 @@ const winPatterns = [ //jis Patterns k ban ne per player jitega
     [6, 7, 8],
 ];
 
-
-
 const resetGame = () => {
-    turnO = true; 
+    turnO = true;
     enableBoxes();
     msgContainer.classList.add("hide");
 
@@ -31,7 +29,7 @@ boxes.forEach((box) => {  //EventListener using for clickebel and put the value 
     box.addEventListener("click", () => {
         if (turnO) {
             //player0
-            box.innerText = "0";
+            box.innerText = "O";
             turnO = false;
         } else {
             //playerX
@@ -44,16 +42,16 @@ boxes.forEach((box) => {  //EventListener using for clickebel and put the value 
     });
 });
 
-// This are valu of enable disable 
+// // This are valu of enable disable 
 const disableBoxes = () => {
-    for(let box of boxes) {
+    for (let box of boxes) {
         box.disabled = true;
     }
 }
 const enableBoxes = () => {
-    for(let box of boxes) {
+    for (let box of boxes) {
         box.disabled = false;
-        box.innerText ="";
+        box.innerText = "";
     }
 }
 
@@ -79,8 +77,8 @@ const chackWinner = () => {
 };
 
 
-newGameBtn.addEventListener("click" , resetGame);
-resetBtn.addEventListener("click" , resetGame);
-resetBtn.addEventListener("click" , resetGame);
+newGameBtn.addEventListener("click", resetGame);
+resetBtn.addEventListener("click", resetGame);
+// resetBtn.addEventListener("click" , resetGame);
 
 
